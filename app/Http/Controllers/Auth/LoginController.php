@@ -34,7 +34,10 @@ class LoginController extends Controller
 
         $token = $user->createToken($user->name);
  
-        return ['token' => $token->plainTextToken];
+        return [
+            'id'    => $user->id,
+            'token' => $token->plainTextToken
+        ];
     }
 
 

@@ -15,16 +15,12 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::latest()->with(['user'])->get();
-        
-        return view('posts.index', compact('posts'));
+        return Post::latest()->with(['user'])->get();
     }
 
     public function show(Post $post)
     {
-        $post = $post->load('user', 'comments');
-  
-        return view('posts.show', compact('post'));
+        return $post->load('user');
     }
 
     public function create()
