@@ -13,6 +13,11 @@ class PostsController extends Controller
         return Post::latest()->with(['user'])->get();
     }
 
+    public function show(Post $post)
+    {
+        return $post->load('user');
+    }
+
     public function update(Post $post, Request $request)
     {
         try {
