@@ -13,21 +13,6 @@ class PostsController extends Controller
         return Post::latest()->with(['user'])->get();
     }
 
-    public function show(Post $post)
-    {
-        return $post->load('user');
-    }
-
-    public function create()
-    {
-        return view('posts.create');
-    }
-
-    public function edit(Post $post)
-    {
-        return view('posts.edit', compact('post'));
-    }
-
     public function update(Post $post, Request $request)
     {
         try {
